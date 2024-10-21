@@ -47,6 +47,7 @@ public class Javafuncfunc {
                     case 0: {
                         JOptionPane.showMessageDialog(null, "Provide the radius of the circle");
                         radius = getvalue();
+                        if (radius == -1){break;}
                         double circlearea = getcirclearea(radius);
                         JOptionPane.showMessageDialog(null, "Circlearea" + circlearea);
                         break;
@@ -54,8 +55,10 @@ public class Javafuncfunc {
                     case 1: {
                         JOptionPane.showMessageDialog(null, "Provide the radius of the circle");
                         radius = getvalue();
+                        if (radius == -1){break;}
                         JOptionPane.showMessageDialog(null, "Provide the central angle of the circle in degrees");
                         centralangle = getvalue();
+                        if (centralangle == -1){break;}
                         double segmentarea= calculateCircleSegmentArea(radius,centralangle);
                         JOptionPane.showMessageDialog(null, "Circlesegmentarea" + segmentarea);
                         
@@ -64,8 +67,10 @@ public class Javafuncfunc {
                     case 2: {
                         JOptionPane.showMessageDialog(null, "Provide the base of the rectangle");
                         base = getvalue();
+                        if (base == -1){break;}
                         JOptionPane.showMessageDialog(null, "Provide the height of the rectangle");
                         height = getvalue();
+                        if (height == -1){break;}
                         double arearectangle = getrectanglearea(base, height);
                         JOptionPane.showMessageDialog(null, "Rectanglearea" + arearectangle);
                         break;
@@ -74,8 +79,10 @@ public class Javafuncfunc {
                     case 3: {
                         JOptionPane.showMessageDialog(null, "Provide the base of the triangle");
                         base = getvalue();
+                        if (base == -1){break;}
                         JOptionPane.showMessageDialog(null, "Provide the height of the triangle");
                         height = getvalue();
+                        if (height == -1){break;}
                         double trianglearea = gettrianglearea(base, height);
                         JOptionPane.showMessageDialog(null, "trianglearea" + trianglearea);
                         break;
@@ -84,6 +91,7 @@ public class Javafuncfunc {
                     case 4: {
                         JOptionPane.showMessageDialog(null, "Provide the radius of the sphere");
                         radius = getvalue();
+                        if (radius == -1){break;}
                         double spherearea = calculateSphereSurfaceArea(radius);
                         JOptionPane.showMessageDialog(null, "spherearea" + spherearea);
                         break;
@@ -91,6 +99,7 @@ public class Javafuncfunc {
                     case 5: {
                         JOptionPane.showMessageDialog(null, "Provide the radius of the sphere");
                         radius = getvalue();
+                        if (radius == -1){break;}
                         double spherevolume = getspherevolume(radius);
                         JOptionPane.showMessageDialog(null, "spherevolume" + spherevolume);
                         break;
@@ -99,8 +108,10 @@ public class Javafuncfunc {
                     case 6: {
                         JOptionPane.showMessageDialog(null, "Provide the radius of the cylinder's base");
                         radius = getvalue();
+                        if (radius == -1){break;}
                         JOptionPane.showMessageDialog(null, "Provide the height of the cylinder");
                         height = getvalue();
+                        if (height == -1){break;}
                         double cylindervolume = getcylindervolume(radius, height);
                         JOptionPane.showMessageDialog(null, "cylindervolume" + cylindervolume);
                         break;
@@ -109,10 +120,13 @@ public class Javafuncfunc {
                     case 7: {
                         JOptionPane.showMessageDialog(null, "Provide side a of the triangle");
                         sidea = getvalue();
+                        if (sidea == -1){break;}
                         JOptionPane.showMessageDialog(null, "Provide side b of the triangle");
                         sideb = getvalue();
+                        if (sideb == -1){break;}
                         JOptionPane.showMessageDialog(null, "Provide angle C of the triangle in degrees");
                         angleC = getvalue();
+                        if (angleC == -1){break;}
                         double sidec = calculateTriangleSide(sidea, sideb, angleC);
                         JOptionPane.showMessageDialog(null, "Side c" + sidec);
                         break;
@@ -159,15 +173,7 @@ public class Javafuncfunc {
         if (value <= 0) {
             VALUE:
             do {
-                int changeinput = JOptionPane.showOptionDialog(
-                        null,
-                        "what do you want to do?",
-                        "You entered an invalid value",
-                        JOptionPane.DEFAULT_OPTION,
-                        JOptionPane.PLAIN_MESSAGE,
-                        null,
-                        new String[]{"correct the value", "set to no value", "Exit program"},
-                        null);
+                int changeinput = JOptionPane.showConfirmDialog(null, "do you want to correct the value?", "wrong input", JOptionPane.YES_NO_OPTION);
                 switch (changeinput) {
                     case -1: {
                         value = -1;
@@ -182,13 +188,10 @@ public class Javafuncfunc {
                         break VALUE;
                     }
                     case 1: {
-                        value = 0;
-                        break VALUE;
-                    }
-                    case 2: {
                         value = -1;
                         break VALUE;
                     }
+
                 }
             } while (correctvalue);
 
