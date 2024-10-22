@@ -23,7 +23,7 @@ public class Javafuncfunc {
         double sidea = 0;
         double sideb = 0;
         double angleC = 0;
-        double centralangle=0;
+        double centralangle = 0;
         RUNNING:
         do {
 
@@ -38,7 +38,7 @@ public class Javafuncfunc {
                         JOptionPane.DEFAULT_OPTION,
                         JOptionPane.PLAIN_MESSAGE,
                         null,
-                        new String[]{"Area of a circle","Area of a Circle Segment", "Area of a rectangle", "Area of a triangle", "Area of a sphere", "Volume of a sphere", "Volume of a cylinder", "Find a triangles missing side"},
+                        new String[]{"Area of a circle", "Area of a Circle Segment", "Area of a rectangle", "Area of a triangle", "Area of a sphere", "Volume of a sphere", "Volume of a cylinder", "Find a triangles missing side"},
                         null);
                 switch (operation) {
                     case -1: {
@@ -47,88 +47,116 @@ public class Javafuncfunc {
                     case 0: {
                         JOptionPane.showMessageDialog(null, "Provide the radius of the circle");
                         radius = getvalue();
-                        if (radius == -1){break;}
+                        if (radius == -1) {
+                            break;
+                        }
                         double circlearea = getcirclearea(radius);
-                        JOptionPane.showMessageDialog(null, "Circlearea" + circlearea);
+                        JOptionPane.showMessageDialog(null, String.format("The area of a circle with a radius of %.2f units is %.2f square units.", radius, circlearea));
                         break;
                     }
                     case 1: {
                         JOptionPane.showMessageDialog(null, "Provide the radius of the circle");
                         radius = getvalue();
-                        if (radius == -1){break;}
+                        if (radius == -1) {
+                            break;
+                        }
                         JOptionPane.showMessageDialog(null, "Provide the central angle of the circle in degrees");
-                        centralangle = getvalue();
-                        if (centralangle == -1){break;}
-                        double segmentarea= calculateCircleSegmentArea(radius,centralangle);
-                        JOptionPane.showMessageDialog(null, "Circlesegmentarea" + segmentarea);
-                        
+                        centralangle = getcirlesegmentangle();
+                        if (centralangle == -1) {
+                            break;
+                        }
+                        double segmentarea = calculateCircleSegmentArea(radius, centralangle);
+                        JOptionPane.showMessageDialog(null, String.format("The area of a circle segment with a radius of %.2f units and a central angle of %.2f degrees is %.2f square units.", radius, centralangle, segmentarea));
+
                         break;
                     }
                     case 2: {
                         JOptionPane.showMessageDialog(null, "Provide the base of the rectangle");
                         base = getvalue();
-                        if (base == -1){break;}
+                        if (base == -1) {
+                            break;
+                        }
                         JOptionPane.showMessageDialog(null, "Provide the height of the rectangle");
                         height = getvalue();
-                        if (height == -1){break;}
+                        if (height == -1) {
+                            break;
+                        }
                         double arearectangle = getrectanglearea(base, height);
-                        JOptionPane.showMessageDialog(null, "Rectanglearea" + arearectangle);
+                        JOptionPane.showMessageDialog(null, String.format("The area of a rectangle with a base of %.2f units and a height  of %.2f units is %.2f square units.", base, height, arearectangle));
                         break;
 
                     }
                     case 3: {
                         JOptionPane.showMessageDialog(null, "Provide the base of the triangle");
                         base = getvalue();
-                        if (base == -1){break;}
+                        if (base == -1) {
+                            break;
+                        }
                         JOptionPane.showMessageDialog(null, "Provide the height of the triangle");
                         height = getvalue();
-                        if (height == -1){break;}
+                        if (height == -1) {
+                            break;
+                        }
                         double trianglearea = gettrianglearea(base, height);
-                        JOptionPane.showMessageDialog(null, "trianglearea" + trianglearea);
+                        JOptionPane.showMessageDialog(null, String.format("The area of a triangle with a base of %.2f units and a height  of %.2f units is %.2f square units.", base, height, trianglearea));
                         break;
 
                     }
                     case 4: {
                         JOptionPane.showMessageDialog(null, "Provide the radius of the sphere");
                         radius = getvalue();
-                        if (radius == -1){break;}
+                        if (radius == -1) {
+                            break;
+                        }
                         double spherearea = calculateSphereSurfaceArea(radius);
-                        JOptionPane.showMessageDialog(null, "spherearea" + spherearea);
+                        JOptionPane.showMessageDialog(null, String.format("The area of a sphere with a radius of %.2f units is %.2f square units.", radius, spherearea));
                         break;
                     }
                     case 5: {
                         JOptionPane.showMessageDialog(null, "Provide the radius of the sphere");
                         radius = getvalue();
-                        if (radius == -1){break;}
+                        if (radius == -1) {
+                            break;
+                        }
                         double spherevolume = getspherevolume(radius);
-                        JOptionPane.showMessageDialog(null, "spherevolume" + spherevolume);
+                        JOptionPane.showMessageDialog(null, String.format("The volume of a sphere with a radius of %.2f units is %.2f cubic units.", radius, spherevolume));
                         break;
 
                     }
                     case 6: {
                         JOptionPane.showMessageDialog(null, "Provide the radius of the cylinder's base");
                         radius = getvalue();
-                        if (radius == -1){break;}
+                        if (radius == -1) {
+                            break;
+                        }
                         JOptionPane.showMessageDialog(null, "Provide the height of the cylinder");
                         height = getvalue();
-                        if (height == -1){break;}
+                        if (height == -1) {
+                            break;
+                        }
                         double cylindervolume = getcylindervolume(radius, height);
-                        JOptionPane.showMessageDialog(null, "cylindervolume" + cylindervolume);
+                        JOptionPane.showMessageDialog(null, String.format("The volume of a cylinder with a radius of %.2f units and a height of %.2f units is %.2f cubic units.", radius, height, cylindervolume));
                         break;
 
                     }
                     case 7: {
                         JOptionPane.showMessageDialog(null, "Provide side a of the triangle");
                         sidea = getvalue();
-                        if (sidea == -1){break;}
+                        if (sidea == -1) {
+                            break;
+                        }
                         JOptionPane.showMessageDialog(null, "Provide side b of the triangle");
                         sideb = getvalue();
-                        if (sideb == -1){break;}
+                        if (sideb == -1) {
+                            break;
+                        }
                         JOptionPane.showMessageDialog(null, "Provide angle C of the triangle in degrees");
-                        angleC = getvalue();
-                        if (angleC == -1){break;}
+                        angleC = gettriangleangle();
+                        if (angleC == -1) {
+                            break;
+                        }
                         double sidec = calculateTriangleSide(sidea, sideb, angleC);
-                        JOptionPane.showMessageDialog(null, "Side c" + sidec);
+                        JOptionPane.showMessageDialog(null, String.format("The missing side of a tringle with sides %.2f units and %.2f units and an angle of %.2f degrees is %.2f units.", sidea, sideb, angleC, sidec));
                         break;
 
                     }
@@ -167,37 +195,137 @@ public class Javafuncfunc {
 
     public static double getvalue() {
         double value = 0;
-        boolean correctvalue = true;
-        String val = JOptionPane.showInputDialog("Enter the value");
-        value = Double.parseDouble(val);
-        if (value <= 0) {
-            VALUE:
-            do {
-                int changeinput = JOptionPane.showConfirmDialog(null, "do you want to correct the value?", "wrong input", JOptionPane.YES_NO_OPTION);
-                switch (changeinput) {
-                    case -1: {
-                        value = -1;
-                        break VALUE;
-                    }
-                    case 0: {
-                        String correction = JOptionPane.showInputDialog("Enter the value");
-                        value = Double.parseDouble(correction);
-                        if (value <= 0) {
-                            break;
-                        }
-                        break VALUE;
-                    }
-                    case 1: {
-                        value = -1;
-                        break VALUE;
-                    }
+        boolean validInput = false;
+        String toolong = """
+                         Value must be:
+                         - Greater than 0""";
 
+        while (!validInput) {
+            String val = JOptionPane.showInputDialog("Enter the value");
+
+            if (val == null || val.trim().isEmpty()) {
+                int changeInput = JOptionPane.showConfirmDialog(
+                        null, "Do you want to try again?",
+                        "Invalid Value", JOptionPane.YES_NO_OPTION);
+
+                if (changeInput != JOptionPane.YES_OPTION) {
+                    return -1;
                 }
-            } while (correctvalue);
+            } else {
+                try {
+                    value = Double.parseDouble(val);
+                    if (value > 0) {
+                        validInput = true;
+                    } else {
+                        int changeInput = JOptionPane.showConfirmDialog(
+                                null,
+                                toolong,
+                                "Invalid Value",
+                                JOptionPane.YES_NO_OPTION);
 
+                        if (changeInput != JOptionPane.YES_OPTION) {
+                            return -1;
+                        }
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Invalid number. Please try again.");
+                }
+            }
         }
+
         return value;
     }
+//getting angle and making sure its valid//
+
+    public static double getcirlesegmentangle() {
+        double value = 0;
+        boolean validInput = false;
+        String toolong = """
+                                 Value must be:
+                                 - Greater than 0
+                                 - Less than 360""";
+
+        while (!validInput) {
+            String val = JOptionPane.showInputDialog("Enter the value");
+
+            if (val == null || val.trim().isEmpty()) {
+                int changeInput = JOptionPane.showConfirmDialog(
+                        null, "Do you want to try again?",
+                        "Invalid Value", JOptionPane.YES_NO_OPTION);
+
+                if (changeInput != JOptionPane.YES_OPTION) {
+                    return -1;
+                }
+            } else {
+                try {
+                    value = Double.parseDouble(val);
+                    if (value > 0 && value < 360) {
+                        validInput = true;
+                    } else {
+                        int changeInput = JOptionPane.showConfirmDialog(
+                                null,
+                                toolong,
+                                "Invalid Value",
+                                JOptionPane.YES_NO_OPTION);
+
+                        if (changeInput != JOptionPane.YES_OPTION) {
+                            return -1;
+                        }
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Invalid number. Please try again.");
+                }
+            }
+        }
+
+        return value;
+    }
+
+    //getting angle and making sure its valid//
+    public static double gettriangleangle() {
+        double value = 0;
+        boolean validInput = false;
+        String toolong = """
+                                         Value must be:
+                                         - Greater than 0
+                                         - Less than 180""";
+
+        while (!validInput) {
+            String val = JOptionPane.showInputDialog("Enter the value");
+
+            if (val == null || val.trim().isEmpty()) {
+                int changeInput = JOptionPane.showConfirmDialog(
+                        null, "Do you want to try again?",
+                        "Invalid Value", JOptionPane.YES_NO_OPTION);
+
+                if (changeInput != JOptionPane.YES_OPTION) {
+                    return -1;
+                }
+            } else {
+                try {
+                    value = Double.parseDouble(val);
+                    if (value > 0 && value < 180) {
+                        validInput = true;
+                    } else {
+                        int changeInput = JOptionPane.showConfirmDialog(
+                                null,
+                                toolong,
+                                "Invalid Value",
+                                JOptionPane.YES_NO_OPTION);
+
+                        if (changeInput != JOptionPane.YES_OPTION) {
+                            return -1;
+                        }
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Invalid number. Please try again.");
+                }
+            }
+        }
+
+        return value;
+    }
+//calculations//
 
     public static double getcirclearea(double a) {
         double areacircle = Math.PI * a * a;
