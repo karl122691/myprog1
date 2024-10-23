@@ -327,39 +327,39 @@ public class Javafuncfunc {
     }
 //calculations//
 
-    public static double getcirclearea(double a) {
-        double areacircle = Math.PI * a * a;
+    public static double getcirclearea(double r) {
+        double areacircle = Math.PI * r * r;
         return areacircle;
     }
 
-    public static double calculateCircleSegmentArea(double a, double b) {
-        double radians = Math.toRadians(b);
-        double area = .5 * a * a * (radians - Math.sin(radians));
+    public static double calculateCircleSegmentArea(double r, double angle) {
+        double radians = Math.toRadians(angle);
+        double area = .5 * r * r * (radians - Math.sin(radians));
         return area;
     }
 
-    public static double getrectanglearea(double a, double b) {
-        double arearectangle = a * b;
+    public static double getrectanglearea(double b, double h) {
+        double arearectangle = b * h;
         return arearectangle;
     }
 
-    public static double gettrianglearea(double a, double b) {
-        double trianglearea = (a * b) / 2;
+    public static double gettrianglearea(double b, double h) {
+        double trianglearea = (b * h) / 2;
         return trianglearea;
     }
 
-    public static double calculateSphereSurfaceArea(double a) {
-        double area = 4 * Math.PI * a * a;
+    public static double calculateSphereSurfaceArea(double r) {
+        double area = 4 * Math.PI * r * r;
         return area;
     }
 
-    public static double getspherevolume(double a) {
-        double volume = (4 * Math.PI * a * a * a) / 3;
+    public static double getspherevolume(double r) {
+        double volume = (4 * Math.PI * r * r * r) / 3;
         return volume;
     }
 
-    public static double getcylindervolume(double a, double b) {
-        double volume = Math.PI * a * a * b;
+    public static double getcylindervolume(double r, double h) {
+        double volume = Math.PI * r * r * h;
         return volume;
     }
 
